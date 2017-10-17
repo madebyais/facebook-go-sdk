@@ -38,14 +38,14 @@ func main() {
 
 Please refer to `examples` folder for more details.
 
-### Next
+### NEXT
 
 - Enable middelware handler to retrieve access_token
 
-### Author
+### AUTHOR
 
 [Faris](madebyais@gmail.com)
 
-### License
+### LICENSE
 
 Release under [MIT LICENSE](https://github.com/madebyais/facebook-go-sdk/blob/master/LICENSE)
