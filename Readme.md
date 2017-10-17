@@ -45,3 +45,7 @@ Please refer to `examples` folder for more details.
 ### Author
 
 [Faris](madebyais@gmail.com)
+
+### License
+
+Release under [MIT LICENSE](https://github.com/madebyais/facebook-go-sdk/blob/master/LICENSE)
