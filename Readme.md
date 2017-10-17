@@ -22,7 +22,7 @@ func main() {
 
 	// set your access token
 	// NOTES: Please exchange with your access token
-	fb.SetAccessToken(`EAACEdEose0cBAJ4cTiwJkXbHMZAaBq5R4JK33IedxhWe5g5Sn0OWVQz85cYb1RSuV2idZAoGbtGPSZAWZBqApQ71MbigYDptl0o7li1luYIcgae5Q8ZC00qrNZAsKATFMS7AIEsgEzbYQMZAt58e2zVzoR0brphfm67QNkZBw3lCrHjDpM0lJD0Uvf2EHwlcsTZBlyUQQZCFYZC8wZDZD`)
+	fb.SetAccessToken(`xxxxxx`)
 
 	// and directly get your feed :)
 	data, err := fb.API(`/me/feed`).Get()
