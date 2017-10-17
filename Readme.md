@@ -1,6 +1,6 @@
 Facebook Go SDK
 ------------------------
-###### v0.0.1
+###### v0.1.0
 
 Facebook Go SDK is an unofficial Facebook SDK for Golang.
 It is very simple and easy to use.
@@ -22,10 +22,10 @@ func main() {
 
 	// set your access token
 	// NOTES: Please exchange with your access token
-	fb.SetAccessToken(`xxxxxx`)
+	fb.SetAccessToken(`{YOUR_ACCESS_TOKEN}`)
 
-	// and directly get your feed :)
-	data, err := fb.API(`/me/feed`).Get()
+	// and directly get your data :)
+	data, err := fb.API(`/me`).Get()
 	if err != nil {
 		panic(err)
 	}
@@ -40,7 +40,7 @@ Please refer to `examples` folder for more details.
 
 ### NEXT
 
-- Enable middelware handler to retrieve access_token
+- Add feature to upload image
 
 ### AUTHOR
 

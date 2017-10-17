@@ -1,6 +1,12 @@
 package main
 
 func main() {
+	// Run generate access token
+	GenerateAccessToken()
+
+	// Run basic sample for me
+	BasicMe()
+
 	// Run basic sample for feed
 	BasicFeed()
 

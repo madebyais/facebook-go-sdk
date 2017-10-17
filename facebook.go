@@ -2,7 +2,11 @@
 // when they want to use Facebook Graph API using Golang
 package facebook
 
-import "io"
+import (
+	"encoding/json"
+	"errors"
+	"io"
+)
 
 type (
 	// Facebook is the base schema
@@ -24,8 +28,16 @@ type (
 		GetAppID() string
 		GetAppSecret() string
 
+		GenerateAccessToken(redirectURI string, code string) (map[string]interface{}, error)
+
 		Raw(method string, path string, queryStr string, body io.Reader) (interface{}, error)
 		API(path string) APIInterface
+	}
+
+	OauthResponseSchema struct {
+		AccessToken string `json:"access_token"`
+		TokenType   string `json:"token_type"`
+		ExpiresIn   int32  `json:"expires_in"`
 	}
 )
 
@@ -73,6 +85,34 @@ func (fb *Facebook) GetAppID() string {
 // GetAppSecret returns the current used app secret
 func (fb *Facebook) GetAppSecret() string {
 	return fb.AppSecret
+}
+
+// GenerateAccessToken returns access_token data
+func (fb *Facebook) GenerateAccessToken(redirectURI string, code string) (map[string]interface{}, error) {
+	if fb.GetAppID() == `` {
+		return map[string]interface{}{}, errors.New(`Please set your application id.`)
+	}
+
+	if fb.GetAppSecret() == `` {
+		return map[string]interface{}{}, errors.New(`Please set your application secret.`)
+	}
+
+	qs := `?client_id=` + fb.GetAppID() + `&client_secret=` + fb.GetAppSecret() + `&redirect_uri=` + redirectURI + `&code=` + code
+	urlRaw := new(Graph).
+		SetVersion(fb.Version).
+		GenerateRawURL(`/oauth/access_token`, qs)
+
+	data, err := new(Call).SetMethod(`GET`).SetURL(urlRaw).Submit()
+	if err != nil {
+		return map[string]interface{}{}, err
+	}
+
+	var dataAccessToken map[string]interface{}
+
+	dataByte := []byte(data.(string))
+	errJSONUnmarshal := json.Unmarshal(dataByte, &dataAccessToken)
+
+	return dataAccessToken, errJSONUnmarshal
 }
 
 // Raw is use to call Facebook Graph API in raw method
