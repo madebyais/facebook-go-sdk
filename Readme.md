@@ -38,9 +38,9 @@ func main() {
 
 Please refer to `examples` folder for more details.
 
-### NEXT
+### ROADMAP
 
-- Add feature to upload image
+Please refer to [Projects][https://github.com/madebyais/facebook-go-sdk/projects/1] tab for more detail.
 
 ### AUTHOR
 
