@@ -40,7 +40,7 @@ Please refer to `examples` folder for more details.
 
 ### ROADMAP
 
-Please refer to [Projects][https://github.com/madebyais/facebook-go-sdk/projects/1] tab for more detail.
+Please refer to [Projects](https://github.com/madebyais/facebook-go-sdk/projects/1) tab for more detail.
 
 ### AUTHOR
 
