@@ -5,38 +5,11 @@ Facebook Go SDK
 Facebook Go SDK is an unofficial Facebook SDK for Golang.
 It is very simple and easy to use.
 
-### SAMPLE
+### HOW-TO
 
-```
-package main
+The easiest way to get started is by following the guide that I have wrote on the wiki section.
 
-import (
-	"fmt"
-
-	facebook "github.com/madebyais/facebook-go-sdk"
-)
-
-func main() {
-	// initalize facebook-go-sdk
-	fb := facebook.New()
-
-	// set your access token
-	// NOTES: Please exchange with your access token
-	fb.SetAccessToken(`{YOUR_ACCESS_TOKEN}`)
-
-	// and directly get your data :)
-	data, err := fb.API(`/me`).Get()
-	if err != nil {
-		panic(err)
-	}
-
-	// print your feed
-	fmt.Println(data)
-}
-
-```
-
-Please refer to `examples` folder for more details.
+[WIKI](https://github.com/madebyais/facebook-go-sdk/wiki) 
 
 ### ROADMAP
 
