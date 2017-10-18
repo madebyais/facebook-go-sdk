@@ -1,6 +1,6 @@
 Facebook Go SDK
 ------------------------
-###### v0.1.0
+###### v0.1.1
 
 Facebook Go SDK is an unofficial Facebook SDK for Golang.
 It is very simple and easy to use.

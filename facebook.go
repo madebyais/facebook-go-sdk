@@ -33,12 +33,6 @@ type (
 		Raw(method string, path string, queryStr string, body io.Reader) (interface{}, error)
 		API(path string) APIInterface
 	}
-
-	OauthResponseSchema struct {
-		AccessToken string `json:"access_token"`
-		TokenType   string `json:"token_type"`
-		ExpiresIn   int32  `json:"expires_in"`
-	}
 )
 
 // New is use to initalize facebook-go-sdk
