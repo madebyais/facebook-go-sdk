@@ -11,12 +11,14 @@ type (
 
 		SelectedFields string
 		Message        string
+		ShareURL       string
 	}
 
 	// APIInterface is the main functionality of facebook-go-sdk
 	APIInterface interface {
 		Fields(fields string) APIInterface
 		Messages(msg string) APIInterface
+		Link(shareURL string) APIInterface
 
 		Get() (interface{}, error)
 		Post() (interface{}, error)
@@ -34,7 +36,14 @@ func (a *API) Fields(fields string) APIInterface {
 // Messages is use to define message that want to be posted
 // into user's timeline
 func (a *API) Messages(msg string) APIInterface {
-	a.Message = `{"message": "` + msg + `"}`
+	a.Message = msg //`{"message": "` + msg + `"}`
+	return a
+}
+
+// Link is use to define a share link that want to be posted
+// into user's timeline
+func (a *API) Link(shareURL string) APIInterface {
+	a.ShareURL = shareURL
 	return a
 }
 
@@ -57,10 +66,12 @@ func (a *API) Post() (interface{}, error) {
 		SetVersion(a.FB.GetVersion()).
 		GenerateURL(a.Path)
 
+	body := `{"message": "` + a.Message + `", "link": "` + a.ShareURL + `"}`
+
 	return new(Call).
 		SetMethod(`POST`).
 		SetURL(url).
-		SetBody(bytes.NewBuffer([]byte(a.Message))).
+		SetBody(bytes.NewBuffer([]byte(body))).
 		AddHeader(`Authorization`, a.FB.AccessToken).
 		AddHeader(`Content-Type`, `application/json`).
 		Submit()

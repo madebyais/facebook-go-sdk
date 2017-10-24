@@ -132,5 +132,6 @@ func (fb *Facebook) API(path string) APIInterface {
 		Path:           path,
 		SelectedFields: ``,
 		Message:        ``,
+		ShareURL:       ``,
 	}
 }

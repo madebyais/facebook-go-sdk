@@ -28,4 +28,7 @@ func BasicFeedPost() {
 	`)
 
 	fmt.Println(data)
+
+	// if you want to share a link you can use the `Link` method
+	// e.g. fb.API(`/me/feed`).Messages(`coba yo`).Link(`http://madebyais.com`).Post()
 }
